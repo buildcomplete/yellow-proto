@@ -12,7 +12,7 @@ The purpose is to create a simple API service allowing to _get some data_ from t
 
 Id|Test|Responsible
 -|-|-
-1|Response should be valid according to specification from all routes when interval contains no data (need to be agreed with customer, suggest respon=0 or header=404)|CG
+1|Response should be valid according to specification from all routes when interval contains no data (need to be agreed with customer, suggest respon=0 or header=404) | CG
 2|Check that results are correct when having 'one' sample|VJ
 3|Results are selected correct according to query terms (manually specify dataset and verify selection on borders)|VJ
 4|Results are correct when have 'two' samples (especially check agreement of median)|VJ

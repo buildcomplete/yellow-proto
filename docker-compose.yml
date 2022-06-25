@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  python-runtime:
+    build: './Python-runtime/'
+    networks:
+      - frontend
+    volumes:
+      - ./App/:/App
+      - ./storage/tripdata:/storage/tripdata
+#      - yellowlogs:/storage/logs
+    ports:
+      - "80:8000"
+#volumes:
+#  - yellowlogs: {}
+
+networks:
+  frontend:

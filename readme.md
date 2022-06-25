@@ -75,6 +75,7 @@ bills-end-in/PULocationID/YYYY-MM-DD/hh:mm:ss/YYYY-MM-DD/hh:mm:ss
 
 ## Design modifications
 * The data should be loaded into a database that can handle the entire dataset fast, since for calculating median value, all the data need to be in memory at the same time.
+* Using a standard database might also be a good solution, the data needed should be to bug, and it is easy to scale across nodes. The _Danger_ of using a cloud database such as Cosmos db is that the price could become a concern if someone searches all the data
 * It is also possible that removing all the colums that are not needed, it would be feasable to have everything in memory, right now we use 500mb of ram for one month, assuming the same amount of data for each month gives 6gb-year, for 10 years that 60gb
 * Maybee removing the unused columns would solve the problem, we are using the following column
   * trip_distance

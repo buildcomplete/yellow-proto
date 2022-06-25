@@ -42,7 +42,11 @@ def get_range(start_date, start_time, end_date, end_time):
 @app.get("/")
 async def root():
     return {
-        "trip duration": "/trip-dur/{start_date}/{start_time}/{end_date}/{end_time}"
+        "trip duration": "/trip-dur/2020-01-01/00:00:00/2021-01-02/00:00:00",
+        "trip range": "/trip-range/2020-01-01/00:00:00/2021-01-02/00:00:00",
+        "bills": "/bills/2020-01-01/00:00:00/2021-01-02/00:00:00",
+        "bills starting in": "/bills-start-in/230/2020-01-01/00:00:00/2021-01-02/00:00:00",
+        "bills ending in": "/bills-end-in/230/2020-01-01/00:00:00/2021-01-02/00:00:00",
     }
 
 @app.get("/trip-dur/{start_date}/{start_time}/{end_date}/{end_time}")

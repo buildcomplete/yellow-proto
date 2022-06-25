@@ -58,7 +58,7 @@ async def root():
         "bills ending in": "/bills-end-in/230/2020-01-01/00:00:00/2021-01-02/00:00:00",
     }
 
-# Get trip average duration in minutes
+# Get trip statistics for duration in minutes
 @app.get("/trip-dur/{start_date}/{start_time}/{end_date}/{end_time}")
 async def trip_range(start_date, start_time, end_date, end_time):
     subset = get_range(start_date, start_time, end_date, end_time)
@@ -66,9 +66,9 @@ async def trip_range(start_date, start_time, end_date, end_time):
     sum = x.sum()
     mean = x.mean()
     median = x.median()
-    return { "total": sum, "mean": mean, "median": median}
+    return { "total": sum/60, "mean": mean/60, "median": median/60}
 
-
+# Get trip statistics for ride distance in km
 @app.get("/trip-range/{start_date}/{start_time}/{end_date}/{end_time}")
 async def trip_range(start_date, start_time, end_date, end_time):
     subset = get_range(start_date, start_time, end_date, end_time)
@@ -78,6 +78,7 @@ async def trip_range(start_date, start_time, end_date, end_time):
     median = x.median()
     return { "total": sum, "mean": mean, "median": median}
 
+# Get cost statistics in usd
 @app.get("/bills/{start_date}/{start_time}/{end_date}/{end_time}")
 async def trip_cost(start_date, start_time, end_date, end_time):
     subset = get_range(start_date, start_time, end_date, end_time)
@@ -87,6 +88,7 @@ async def trip_cost(start_date, start_time, end_date, end_time):
     median = x.median()
     return { "total": sum, "mean": mean, "median": median}
 
+# Get cost statistics in usd, fare starting in an area
 @app.get("/bills-start-in/{PULocationID}/{start_date}/{start_time}/{end_date}/{end_time}")
 async def trip_cost_start(PULocationID, start_date, start_time, end_date, end_time):
     subset = get_range(start_date, start_time, end_date, end_time)
@@ -97,11 +99,11 @@ async def trip_cost_start(PULocationID, start_date, start_time, end_date, end_ti
     median = x.median()
     return { "total": sum, "mean": mean, "median": median}
 
+# Get cost statistics in usd, fare ending in an area
 @app.get("/bills-end-in/{DOLocationID}/{start_date}/{start_time}/{end_date}/{end_time}")
 async def trip_cost_end(DOLocationID, start_date, start_time, end_date, end_time):
     subset = get_range(start_date, start_time, end_date, end_time)
     subset = subset.where(subset['DOLocationID'] == DOLocationID) # To be fixed
-    
     x = subset['total_amount']
     sum = x.sum()
     mean = x.mean()

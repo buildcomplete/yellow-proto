@@ -44,8 +44,8 @@ Requirements: all metrics can be queried with configurable start and end date
 
 All routes have a start and end specified as the following template
 {metric}/YYYY-MM-DD/hh:mm:ss/YYYY-MM-DD/hh:mm:ss 
-* (first timestamp is minimum time, trip should be started _after_ this)
-* (second timestamp is maximum time, trip should be started _before_ this)
+* First timestamp is _minimum_ time, trip should be started _after_ this
+* Second timestamp is _maximum_ time, trip should be started _before_ this
 
 ## Average, median trip length 
 (km and minutes), 

@@ -12,13 +12,14 @@ The purpose is to create a simple API service allowing to _get some data_ from t
 
 Id|Test|Responsible
 -|-|-
-1|Response should be valid according to specification from all routes when interval contains no data (need to be agreed with customer, suggest respon=0 or header=404) | CG
-2|Check that results are correct when having 'one' sample|VJ
-3|Results are selected correct according to query terms (manually specify dataset and verify selection on borders)|VJ
-4|Results are correct when have 'two' samples (especially check agreement of median)|VJ
-5|Results is correctly loaded when comming from multiple datafiles (example, median across data from January and February should give result as agreed upon)|CG
-6|Perfomance of a single 'get' no requirements is made, what should it be?|CG
-7|How many concurrent users will be on the system?|CG
+1|Response should be valid according to specification from all routes when interval contains no data (need to be agreed with customer, suggest respon=0 or header=404)|CG
+2|Check that datatype is correct (minutes,km/USD) for all endpoints|CG
+3|Check that results are correct when having 'one' sample|VJ
+4|Results are selected correct according to query terms (manually specify dataset and verify selection on borders)|VJ
+5|Results are correct when have 'two' samples (especially check agreement of median)|VJ
+6|Results is correctly loaded when comming from multiple datafiles (example, median across data from January and February should give result as agreed upon)|CG
+7|Perfomance of a single 'get' no requirements is made, what should it be?|CG
+8|How many concurrent users will be on the system?|CG
 
 ## Additional specification needed to decide on requirements
 * how different will the queryes be? 

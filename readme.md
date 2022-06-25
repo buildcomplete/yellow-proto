@@ -8,15 +8,22 @@ The purpose is to create a simple API service allowing to _get some data_ from t
 * The application should be built as if it were to be put in production, keep scalability and performance in mind
 
 ## Testing of corrects
-The application is currently _not tested_ to see if the results are correct, the following tests must be made for each route
-* Response should be valid according to specification from all routes when interval contain no data (need to be agreed with customer, suggest 0 or 404)
-* Check that results are correct when having 'one' sample
-* Results are selected correct according to query terms (manually specify dataset and verify selection on borders)
-* Results are correct when have 'two' samples (especially check agreement of median)
-* Results is correctly loaded when comming from multiple datafiles (example, median across data from January and February should give result as agreed upon)
-* Perfomance of a single 'get' no requirements is made, what should it be?
-* How many concurrent users will be on the system?
-* how different will the queryes be? could the results be cached? for instance for plots, the query might always asks for the timeranges of a full month, if so the result can be cached
+> The application is currently _not tested_ to see if the results are correct, the following tests must be made for each route
+
+Id|Test|Responsible
+-|-|-
+1|Response should be valid according to specification from all routes when interval contain no data (need to be agreed with customer, suggest 0 or 404)|VJ
+2|Check that results are correct when having 'one' sample|VJ
+3|Results are selected correct according to query terms (manually specify dataset and verify selection on borders)|VJ
+4|Results are correct when have 'two' samples (especially check agreement of median)|VJ
+5|Results is correctly loaded when comming from multiple datafiles (example, median across data from January and February should give result as agreed upon)|VJ
+6|Perfomance of a single 'get' no requirements is made, what should it be?|CG
+7|How many concurrent users will be on the system?|CH
+
+## Additional specification needed to decide on requirements
+* how different will the queryes be? 
+* can the results be cached? for instance for plots, the query might always asks for the timeranges of a full month, if so the result can be cached
+
 
 # Starting the application
 * Before starting the application [yellow_tripdata_2020-01.parquet](https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.parquet) must be copied to /storage/tripdata (It is not included in here)
